@@ -2,12 +2,18 @@ import express from "express"
 import mongoose from "mongoose"
 import dotenv from "dotenv"
 import cors from "cors"
+import { userRouter } from "./routes/userRouter"
+
+
 
 dotenv.config()
 const app=express();
 app.use(express.json())
 app.use(cors())
 //  const url:string=`${process.env.MONGO_URL}`
+
+app.use("/api/v1/user",userRouter)
+
  
 
 
