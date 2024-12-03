@@ -2,12 +2,9 @@ import zod from "zod"
 import { User } from "../models/user.model"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import dotenv from "dotenv"
+import { Request, Response } from "express"
 
-
-dotenv.config()
-
-export const test =(req:any,res:any) =>{
+export const test =(req:Request,res:Response) =>{
 
     res.json({
         msg:"working..."
@@ -33,7 +30,8 @@ export const signup=async (req:any,res:any) =>{
     if(!parsed.success){
         return res.status(403).json({
             success:false,
-            msg: parsed.error.issues[0].message
+            msg: parsed.error.issues[0].message,
+            error:"incorrect formats"
         })
       }
       
@@ -53,12 +51,12 @@ export const signup=async (req:any,res:any) =>{
     password:hashedPassword
   })
 
-  res.status(200).json({
+   return res.status(200).json({
     msg:"your are signedup successfully"
   })
    } catch (error:any) {
 
-    res.status(500).json({
+   return res.status(500).json({
         error:`somthing went wrong ${error.message}`
     })
     
@@ -102,13 +100,13 @@ export const signin=async (req:any,res:any) =>{
         })
       }
 
-      res.status(403).json({
+      return res.status(403).json({
         error:"Incorrect password"
       })
       
    } catch (error:any) {
     
-    res.status(500).json({
+    return res.status(500).json({
         error:`something went wrong ${error.message}`
     })
    }
