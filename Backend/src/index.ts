@@ -17,7 +17,7 @@ app.use("/api/v1/user",userRouter)
  
 
 
-mongoose.connect(`${process.env.MONGO_URL}`).
+mongoose.connect(process.env.MONGO_URL as string).
 then(()=>{
     console.log("connected to db")
 }).
