@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import dotenv from "dotenv"
 import cors from "cors"
 import { userRouter } from "./routes/userRouter"
+import { contentRouter } from "./routes/contentRouter"
 
 
 
@@ -13,6 +14,7 @@ app.use(cors())
 //  const url:string=`${process.env.MONGO_URL}`
 
 app.use("/api/v1/user",userRouter)
+app.use("/api/v1/content",contentRouter)
 
  
 

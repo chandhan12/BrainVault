@@ -28,8 +28,8 @@ export const authMiddleware = (req: CustomRequest,res: Response,next: NextFuncti
    
     req.userId = decodedUser.userId;
 
-    
     next();
+
   } catch (error:any) {
     res.status(500).json({
       error: `Authentication error: ${error.message}`,
