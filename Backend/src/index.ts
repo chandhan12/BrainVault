@@ -4,6 +4,7 @@ import dotenv from "dotenv"
 import cors from "cors"
 import { userRouter } from "./routes/userRouter"
 import { contentRouter } from "./routes/contentRouter"
+import { ShareLinkRouter } from "./routes/shareLinkRouter"
 
 
 
@@ -15,6 +16,7 @@ app.use(cors())
 
 app.use("/api/v1/user",userRouter)
 app.use("/api/v1/content",contentRouter)
+app.use("/api/v1/brain",ShareLinkRouter)
 
  
 
