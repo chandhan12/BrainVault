@@ -6,7 +6,7 @@ const onInputChange=()=>{
 
 }
 
-const CreateContentModel = ({open,onClose}) => {
+const CreateContentModel = ({open,onClose}:any) => {
   return (
     <div>
         { open && <div className="w-screen h-screen bg-slate-500 
