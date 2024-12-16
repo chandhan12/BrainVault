@@ -1,4 +1,4 @@
-import { Plus, TwitterIcon, YoutubeIcon } from "./Icons"
+import { TwitterIcon, YoutubeIcon } from "./Icons"
 import SideBarItem from "./SideBarItem"
 import { BoltIcon } from "@heroicons/react/16/solid";
 
