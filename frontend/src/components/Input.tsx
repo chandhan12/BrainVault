@@ -1,9 +1,13 @@
 
+interface InputProps{
+  placeholder:string;
+  reference:any
+}
 
-const Input = ({onChange,placeholder} :{placeholder :string, onChange: () =>void}) => {
+const Input = ({placeholder,reference} :InputProps) => {
   return (
     <div>
-      <input type="text" onChange={onChange} placeholder={placeholder} className='px-4 py-2 border rounded-md m-2 ' />
+      <input ref={reference} type="text" placeholder={placeholder} className='px-4 py-2 border rounded-md m-2 ' />
     </div>
   )
 }
