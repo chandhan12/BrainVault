@@ -1,4 +1,4 @@
-import { Share } from "./Icons";
+import { DeleteIcon, Share, TwitterIcon, YoutubeIcon } from "./Icons";
 
 interface CardProps{
     title:string;
@@ -16,7 +16,8 @@ export function Card({link, type,title}:CardProps){
            <div className="flex justify-between">
             <div className="flex p-2 items-center text-md">
               <div className="p-2 text-gray-500">
-              <Share/>
+                {type==='youtube' && <span className="text-red-500"><YoutubeIcon/></span>}
+                {type==='twitter' && <TwitterIcon/>}
               </div >
                 {title}
             </div>
@@ -26,8 +27,8 @@ export function Card({link, type,title}:CardProps){
                   <Share/>
                   </a>
                   </div>
-                  <div className="p-2 text-gray-500">
-                  <Share/>
+                  <div className="p-2 text-gray-500 cursor-pointer">
+                  <DeleteIcon/>
                   </div>
             </div>
            </div>

@@ -20,7 +20,7 @@ export function useContent(){
         fetchContent()
         let interval=setInterval(()=>{
             fetchContent()
-        },5*1000)
+        },20*1000)
 
         return () =>{
             clearInterval(interval)
