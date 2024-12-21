@@ -8,7 +8,9 @@ import { BACKEND_URL } from "../config";
 
 enum ContentType{
   youtube='youtube',
-  twitter='twitter'
+  twitter='twitter',
+  Document="Document",
+  Link="Link"
 }
 
 interface CreateContentModelProps {
@@ -19,19 +21,22 @@ interface CreateContentModelProps {
 const CreateContentModel = ({open,onClose}:CreateContentModelProps) => {
   const titleRef=useRef<HTMLInputElement>();
   const linkRef=useRef<HTMLInputElement>();
-  const [type,setType]=useState(ContentType.youtube)
+  const tagRef=useRef<HTMLInputElement>();
+  const [type,setType]=useState("youtube")
   
   
 
   async function addContent () {
     const title=titleRef.current?.value
     const link=linkRef.current?.value
+    const tags=tagRef.current?.value
 
     
     await axios.post(`${BACKEND_URL}/api/v1/content/create`,{
       title,
       link,
-      type
+      type,
+      tags
     },{
   headers:{
     authorization:`Barer ${localStorage.getItem('token')}`
@@ -40,6 +45,7 @@ const CreateContentModel = ({open,onClose}:CreateContentModelProps) => {
 onClose() 
     
   }
+  console.log(type)
   return (
     <div>
         { open && <div>
@@ -61,16 +67,27 @@ onClose()
                    <div>
                     <Input reference={titleRef} placeholder={"Title"}/>
                     <Input reference={linkRef} placeholder={"Link"}/>
+                    
                 </div>
-                <h1>Type</h1>
-                <div className="flex justify-center gap-1 p-4">
+                <h1 className="m-2">Type</h1>
+                {/* <div className="flex justify-center gap-1 p-4">
                   <Button text="Youtube" variant={ type ===ContentType.youtube ? 'primary' :"secondary"} onClick={() =>{
                     setType(ContentType.youtube)
                   }}/>
                   <Button text="Twitter" variant={ type === ContentType.twitter ? 'primary' :"secondary"} onClick={() =>{
                     setType(ContentType.twitter)
                   }}/>
-                </div>
+                </div> */}
+                <select className="border border-slate-400 rounded-md pt-1 pb-1 m-2" onChange={(e)=>{
+                  setType(e.target.value)
+                }}>
+                  <option value="youtube">Youtube</option>
+                  <option value="twitter">Twitter</option>
+                  <option value="Document">Document</option>
+                  <option value="Link">Link</option>
+                </select>
+                <Input reference={tagRef} placeholder={"Enter tags comma(,)"}/>
+               
                 <div className="flex justify-center">
                   <Button variant="primary" onClick={addContent} text="Submit" />
                 </div>

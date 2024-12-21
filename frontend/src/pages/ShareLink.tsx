@@ -9,6 +9,7 @@ interface Content {
   link: string;
   title: string;
   type: string; 
+  tags:string[]
 }
 
 const ShareLink = () => {
@@ -40,15 +41,16 @@ const ShareLink = () => {
       <h1 className="text-lg font-bold">Share Link Page</h1>
       <p>userName: {userName}</p>
       <div className="flex gap-4 flex-wrap">
-        {contents.map(({ type, link, title, _id }) => (
+        {contents.map(({ type, link, title, _id,tags }) => (
           <Card
             deleteContent={deleteContent}
             key={_id}
-            type={type as "youtube" | "twitter"} 
+            type={type as "youtube" | "twitter" } 
             link={link}
             title={title}
             _id={_id}
-            idadmin={false}
+            isAdmin={false}
+            tags={tags}
           />
         ))}
       </div>

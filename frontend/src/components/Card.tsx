@@ -1,15 +1,16 @@
-import { DeleteIcon, Share, TwitterIcon, YoutubeIcon } from "./Icons";
+import { DeleteIcon, DocumentIcon, LinkIcon, Share, TwitterIcon, YoutubeIcon } from "./Icons";
 
 interface CardProps {
   title: string;
   link: string;
-  type: "twitter" | "youtube" | "Document" | "Link"
+  type: "twitter" | "youtube" | "Document" | "Link";
+  tags:string[]
   _id: string;
   deleteContent : (id: string) => void;
-  idadmin?:boolean
+  isAdmin?:boolean
 }
 
-export function Card({ link, type, title, _id, deleteContent,idadmin }: CardProps) {
+export function Card({ link, type, title, _id, deleteContent,isAdmin, tags }: CardProps) {
   const onDelete = () => deleteContent(_id);
 
   const transformLink = () => {
@@ -34,6 +35,8 @@ export function Card({ link, type, title, _id, deleteContent,idadmin }: CardProp
                 </span>
               )}
               {type === "twitter" && <TwitterIcon />}
+              {type === "Document" && <DocumentIcon />}
+              {type === "Link" && <LinkIcon />}
             </div>
             {title}
           </div>
@@ -44,7 +47,7 @@ export function Card({ link, type, title, _id, deleteContent,idadmin }: CardProp
               </a>
             </div>
             {
-              idadmin ?<div className="p-2 text-gray-500 cursor-pointer" onClick={onDelete}>
+              isAdmin ?<div className="p-2 text-gray-500 cursor-pointer" onClick={onDelete}>
               <DeleteIcon />
             </div> : ''
             }
@@ -70,14 +73,23 @@ export function Card({ link, type, title, _id, deleteContent,idadmin }: CardProp
             </blockquote>
           )}
           {type==="Document" && (
-            <p className="text-blue-700 font-semibold">Open document </p>
+            <p className="text-blue-700 font-semibold pb-3 hover:text-green-500 hover:underline cursor-pointer "><a href={link} target="_blank">Open document</a> </p>
           )
 
           }
            {type==="Link" && (
-            <p className="text-blue-700 font-semibold">Go to Original Link </p>
+            <p className="text-blue-700 font-semibold pb-3  hover:text-green-500 hover:underline cursor-pointer "><a  href={link} target="_blank">Go to Original Link</a> </p>
           )
 
+          }
+        </div>
+        <div className="flex gap-2">
+          {
+            tags.map((item)=>{
+              return(
+                <p className="bg-slate-300 rounded-lg text-blue-500 p-1 font-semibold text-sm cursor-pointer hover:underline">#{item}</p>
+              )
+            })
           }
         </div>
       </div>

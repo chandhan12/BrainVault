@@ -88,9 +88,11 @@ function Dashboard() {
                 </div>
 
                 <div className="flex gap-4 flex-wrap">
-                    {filteredContents.map(({ type, link, title,_id }) => {
-                        return <Card idadmin={true} deleteContent={deleteContent} key={link} type={type} link={link} title={title} _id={_id}/>;
+                    {filteredContents.map(({ type, link, title,_id,tags }) => {
+                        return <Card tags={tags} isAdmin={true} deleteContent={deleteContent} key={link} type={type} link={link} title={title} _id={_id}/>;
                     })}
+                    <Card isAdmin={true} type={'Document'} link={'https://heroicons.com/'} title='heroicons document'_id={'jd46d46d84'} tags={['icons','devlopment']} deleteContent={deleteContent}/>
+                    <Card isAdmin={true} type={'Link'} link={'https://heroicons.com/'} title='heroicons document'_id={'jd46d46d84'} tags={['icons','javascript']} deleteContent={deleteContent}/>
                 </div>
             </div>
         </div>

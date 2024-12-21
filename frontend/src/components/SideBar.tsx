@@ -1,5 +1,5 @@
 import { useRecoilState } from "recoil";
-import { Logo, TwitterIcon, YoutubeIcon } from "./Icons"
+import { DocumentIcon, LinkIcon, Logo, TwitterIcon, YoutubeIcon } from "./Icons"
 import SideBarItem from "./SideBarItem"
 
 import { activeTab  } from "../atoms";
@@ -30,6 +30,16 @@ const SideBar = () => {
          setActiveTab('youtube')
         }}>
           <SideBarItem  text={"youtube"} icon={<YoutubeIcon/>}/>
+          </div>
+          <div onClick={()=>{
+         setActiveTab('Document')
+        }}>
+          <SideBarItem  text={"Document"} icon={<DocumentIcon/>}/>
+          </div>
+          <div onClick={()=>{
+         setActiveTab('Link')
+        }}>
+          <SideBarItem  text={"Link"} icon={<LinkIcon/>}/>
           </div>
       </div>
     </div>
