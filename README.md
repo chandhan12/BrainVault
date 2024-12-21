@@ -5,7 +5,7 @@
 BrainVault is a full-stack web application built to help users store, organize, and access their important links, tweets, and documents all in one place. Never lose valuable information again! Share your "second brain" with others effortlessly through unique sharable links.
 
 ---
-
+Homepage
 ![hero](https://github.com/chandhan12/BrainVault/blob/main/Images/Screenshot%202024-12-22%20010608.png)
 Features
 ![features](https://github.com/chandhan12/BrainVault/blob/main/Images/Screenshot%202024-12-22%20010628.png)
