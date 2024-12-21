@@ -14,14 +14,12 @@ const contentSchema=new Schema({
         type:String,
         required:true
     },
-    tags:[
-        {type:Schema.Types.ObjectId,ref:Tags,required:true}
-    ],
+    tags:[ String ],
     userId:{
         type:Schema.Types.ObjectId,
         ref:User,
         required:true
     }
-})
+}, { timestamps: true } )
 
 export const Content=model('Content',contentSchema)

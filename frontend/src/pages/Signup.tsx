@@ -4,6 +4,7 @@ import Input from "../components/Input"
 import { Link, useNavigate } from "react-router-dom"
 import axios from "axios"
 import { BACKEND_URL } from "../config"
+import loginGrapic from '../assets/LoginGraphic.svg'
 
 
 
@@ -27,9 +28,12 @@ const Signup = () => {
     navigate('/signin')
   }
   return (
-    <div className="h-screen w-full flex justify-center items-center bg-slate-300 ">
+    <div className="flex flex-col  justify-center   items-center h-screen bg-slate-200 md:flex-row " >
+    <div className="h-auto w-2/4 hidden md:block">
+      <img src={loginGrapic} alt="" />
+    </div>
       <div className="bg-white  rounded-lg p-4 w-auto h-auto ">
-        
+        <h1 className="text-center font-bold text-slate-800 text-2xl">Sign Up</h1>
        <Input reference={emailRef} placeholder="user@gmail.com" />
        <Input reference={passwordRef} placeholder="password"  />
 

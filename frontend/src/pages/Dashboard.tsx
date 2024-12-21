@@ -17,16 +17,37 @@ function Dashboard() {
     const activeTabValue = useRecoilValue(activeTab);
 
     useEffect(() => {
-        fetchContent(); // Properly call fetchContent
+        fetchContent(); 
     }, [modelOpen]);
 
-    console.log('Active Tab:', activeTabValue); // Log active tab value
-    console.log('Contents:', contents); // Log contents for debugging
+
 
     const filteredContents = contents.filter(({ type }) => {
         return activeTabValue === '' || type === activeTabValue;
     });
-
+    
+    const deleteContent =  (id: string) => {
+        const contentId = id;
+      const nice=async ()=>{
+        try {
+            const response = await axios.delete(`${BACKEND_URL}/api/v1/content/one`, {
+              data: {
+                contentId,
+              },
+              headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`,
+              },
+            });
+        
+            console.log("Delete successful:", response.data);
+          } catch (error) {
+            console.error("Error deleting content:", error);
+          }
+      }
+      nice()
+     
+      };
+      
     return (
         <div>
             <SideBar />
@@ -60,15 +81,15 @@ function Dashboard() {
                                     },
                                 }
                             );
-                            const shareLink = `http://localhost:3000/api/v1/brain/${response.data.hash}`;
+                            const shareLink = `${window.location.origin}/brain/share/${response.data.hash}`;
                             alert(shareLink);
                         }}
                     />
                 </div>
 
                 <div className="flex gap-4 flex-wrap">
-                    {filteredContents.map(({ type, link, title }) => {
-                        return <Card key={link} type={type} link={link} title={title} />;
+                    {filteredContents.map(({ type, link, title,_id }) => {
+                        return <Card idadmin={true} deleteContent={deleteContent} key={link} type={type} link={link} title={title} _id={_id}/>;
                     })}
                 </div>
             </div>

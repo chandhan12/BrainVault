@@ -6,13 +6,13 @@ import { Content } from "../models/content.model";
 export const  addContent=async (req:any,res:any)=>{
 
    try {
-    const {link,type,title}=req.body;
+    const {link,type,title,tags}=req.body;
     await Content.create({
         link,
         type,
         title,
         userId:req.userId,
-        tags:[]
+        tags
     })
 
     res.status(200).json({
