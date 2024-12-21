@@ -3,6 +3,7 @@ import { DocumentIcon, LinkIcon, Logo, TwitterIcon, YoutubeIcon } from "./Icons"
 import SideBarItem from "./SideBarItem"
 
 import { activeTab  } from "../atoms";
+import { Link } from "react-router-dom";
 
 
 
@@ -14,10 +15,10 @@ const SideBar = () => {
     <div className='h-screen fixed left-0 top-0 w-72  bg-white'>
        <div className="flex p-4 items-center ">
        <div className="p-2 flex cursor-pointer">
-          <Logo  />
+         <Link to={'/'} ><Logo  /></Link>
        </div>
        <h1 className="text-xl font-bold cursor-pointer">
-            Brain Vault
+            <Link to={'/'}>BrainVault</Link>
         </h1>
        </div>
       <div className="pt-8 pl-4">

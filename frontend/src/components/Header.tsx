@@ -1,5 +1,6 @@
 
 import { Brain } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function Header() {
   return (
@@ -13,10 +14,10 @@ export function Header() {
           <nav className="hidden md:flex space-x-8">
             <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
             <a href="#how-it-works" className="text-gray-600 hover:text-gray-900">How it works</a>
-            <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
+            <a href="#pricing" className="text-gray-600 hover:text-gray-900"><Link to={'/dashboard'}>Dashboard </Link></a>
           </nav>
           <div className="flex space-x-4">
-            <button className="px-4 py-2 text-gray-600 hover:text-gray-900">Login</button>
+            <button className="px-4 py-2 text-gray-600 hover:text-gray-900"><Link to='/signin'>Login</Link></button>
             <button className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
               Get Started
             </button>

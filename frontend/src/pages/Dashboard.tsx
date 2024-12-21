@@ -95,8 +95,7 @@ function Dashboard() {
                         const formatedDate=new Date(createdAt).toLocaleString();
                         return <Card tags={tags} isAdmin={true} deleteContent={deleteContent} key={link} type={type} link={link} title={title} _id={_id} createdAt={formatedDate}/>;
                     })}
-                    <Card isAdmin={true} type={'Document'} link={'https://heroicons.com/'} title='heroicons document'_id={'jd46d46d84'} tags={['icons','devlopment']} deleteContent={deleteContent} />
-                    <Card isAdmin={true} type={'Link'} link={'https://heroicons.com/'} title='heroicons document'_id={'jd46d46d84'} tags={['icons','javascript']} deleteContent={deleteContent} />
+
                 </div>
             </div>
         </div>

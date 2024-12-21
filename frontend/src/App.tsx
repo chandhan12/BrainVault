@@ -4,6 +4,7 @@ import Signin from "./pages/Signin"
 import Signup from "./pages/Signup"
 import { RecoilRoot } from "recoil"
 import ShareLink from "./pages/ShareLink"
+import HomePage from "./pages/HomePage"
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
      <BrowserRouter>
      <Routes>
       <Route path="/brain/share/:id" element={<ShareLink/>}/>
+      <Route path="/" element={<HomePage/>}/>
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/signin" element={<Signin/>}/>
       <Route path="/dashboard" element={ <RecoilRoot><Dashboard/></RecoilRoot>}/>
