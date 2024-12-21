@@ -18,7 +18,8 @@ function Dashboard() {
 
     useEffect(() => {
         fetchContent(); 
-    }, [modelOpen]);
+    }, [modelOpen,activeTabValue]);
+
 
 
 
@@ -49,8 +50,10 @@ function Dashboard() {
       };
       
     return (
+
         <div>
             <SideBar />
+            
             <div className="p-4 ml-72 min-h-screen bg-slate-200 border-l-2">
                 <CreateContentModel
                     open={modelOpen}
@@ -58,7 +61,7 @@ function Dashboard() {
                         setModelOpen(false);
                     }}
                 />
-                <div className="flex justify-end">
+                <div className="flex justify-end pb-4 ">
                     <Button
                         variant="primary"
                         text="Add content"
@@ -87,12 +90,13 @@ function Dashboard() {
                     />
                 </div>
 
-                <div className="flex gap-4 flex-wrap">
-                    {filteredContents.map(({ type, link, title,_id,tags }) => {
-                        return <Card tags={tags} isAdmin={true} deleteContent={deleteContent} key={link} type={type} link={link} title={title} _id={_id}/>;
+                <div className="flex flex-wrap gap-3 pt-4">
+                    {filteredContents.map(({ type, link, title,_id,tags,createdAt }) => {
+                        const formatedDate=new Date(createdAt).toLocaleString();
+                        return <Card tags={tags} isAdmin={true} deleteContent={deleteContent} key={link} type={type} link={link} title={title} _id={_id} createdAt={formatedDate}/>;
                     })}
-                    <Card isAdmin={true} type={'Document'} link={'https://heroicons.com/'} title='heroicons document'_id={'jd46d46d84'} tags={['icons','devlopment']} deleteContent={deleteContent}/>
-                    <Card isAdmin={true} type={'Link'} link={'https://heroicons.com/'} title='heroicons document'_id={'jd46d46d84'} tags={['icons','javascript']} deleteContent={deleteContent}/>
+                    <Card isAdmin={true} type={'Document'} link={'https://heroicons.com/'} title='heroicons document'_id={'jd46d46d84'} tags={['icons','devlopment']} deleteContent={deleteContent} />
+                    <Card isAdmin={true} type={'Link'} link={'https://heroicons.com/'} title='heroicons document'_id={'jd46d46d84'} tags={['icons','javascript']} deleteContent={deleteContent} />
                 </div>
             </div>
         </div>

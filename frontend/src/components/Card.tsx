@@ -7,10 +7,11 @@ interface CardProps {
   tags:string[]
   _id: string;
   deleteContent : (id: string) => void;
-  isAdmin?:boolean
+  isAdmin?:boolean;
+  createdAt?:string
 }
 
-export function Card({ link, type, title, _id, deleteContent,isAdmin, tags }: CardProps) {
+export function Card({ link, type, title, _id, deleteContent,isAdmin, tags,createdAt }: CardProps) {
   const onDelete = () => deleteContent(_id);
 
   const transformLink = () => {
@@ -24,7 +25,7 @@ export function Card({ link, type, title, _id, deleteContent,isAdmin, tags }: Ca
   };
 
   return (
-    <div>
+    <div className="  ">
       <div className="p-4 bg-white rounded-md border-gray-100 max-w-72 border min-h-48 min-w-48 shadow-md">
         <div className="flex justify-between">
           <div className="flex p-2 items-center text-md">
@@ -54,10 +55,10 @@ export function Card({ link, type, title, _id, deleteContent,isAdmin, tags }: Ca
             
           </div>
         </div>
-        <div className="pt-4">
+        <div className="pt-4 pb-3 ">
           {type === "youtube" && (
             <iframe
-              className="w-full"
+              className="w-full rounded-md"
               src={transformLink()}
               title="YouTube video player"
               frameBorder="0"
@@ -91,7 +92,9 @@ export function Card({ link, type, title, _id, deleteContent,isAdmin, tags }: Ca
               )
             })
           }
+          
         </div>
+        <p className="font-semibold text-base pt-2" > Created on: <span className="font-semibold text-base text-slate-600">{createdAt}</span></p>
       </div>
     </div>
   );

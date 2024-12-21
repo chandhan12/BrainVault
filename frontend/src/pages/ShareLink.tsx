@@ -37,7 +37,7 @@ const ShareLink = () => {
 
 
   return (
-    <div>
+    <div className="bg-slate-200 text-center">
       <h1 className="text-lg font-bold">Share Link Page</h1>
       <p>userName: {userName}</p>
       <div className="flex gap-4 flex-wrap">

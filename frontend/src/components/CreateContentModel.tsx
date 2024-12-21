@@ -29,7 +29,9 @@ const CreateContentModel = ({open,onClose}:CreateContentModelProps) => {
   async function addContent () {
     const title=titleRef.current?.value
     const link=linkRef.current?.value
-    const tags=tagRef.current?.value
+    const arrayTags=tagRef.current?.value
+
+    const tags=arrayTags?.split(',').map((item) => item.trim())
 
     
     await axios.post(`${BACKEND_URL}/api/v1/content/create`,{
@@ -70,14 +72,7 @@ onClose()
                     
                 </div>
                 <h1 className="m-2">Type</h1>
-                {/* <div className="flex justify-center gap-1 p-4">
-                  <Button text="Youtube" variant={ type ===ContentType.youtube ? 'primary' :"secondary"} onClick={() =>{
-                    setType(ContentType.youtube)
-                  }}/>
-                  <Button text="Twitter" variant={ type === ContentType.twitter ? 'primary' :"secondary"} onClick={() =>{
-                    setType(ContentType.twitter)
-                  }}/>
-                </div> */}
+                
                 <select className="border border-slate-400 rounded-md pt-1 pb-1 m-2" onChange={(e)=>{
                   setType(e.target.value)
                 }}>
