@@ -6,6 +6,15 @@ BrainVault is a full-stack web application built to help users store, organize, 
 
 ---
 
+![hero](https://github.com/chandhan12/BrainVault/blob/main/Images/Screenshot%202024-12-22%20010608.png)
+Features
+![features](https://github.com/chandhan12/BrainVault/blob/main/Images/Screenshot%202024-12-22%20010628.png)
+Login
+![login](https://github.com/chandhan12/BrainVault/blob/main/Images/Screenshot%202024-12-22%20010759.png)
+Dashboard
+![dashborad](https://github.com/chandhan12/BrainVault/blob/main/Images/Screenshot%202024-12-22%20014508.png)
+![dashboard](https://github.com/chandhan12/BrainVault/blob/main/Images/Screenshot%202024-12-22%20015109.png)
+
 ## **Features**
 
 - **Store Important Links:**
