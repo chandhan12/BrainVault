@@ -14,6 +14,8 @@ Login
 Dashboard
 ![dashborad](https://github.com/chandhan12/BrainVault/blob/main/Images/Screenshot%202024-12-22%20014508.png)
 ![dashboard](https://github.com/chandhan12/BrainVault/blob/main/Images/Screenshot%202024-12-22%20015109.png)
+SareBrain
+![brain](https://github.com/chandhan12/BrainVault/blob/main/Images/Screenshot%202024-12-22%20020654.png);
 
 ## **Features**
 
